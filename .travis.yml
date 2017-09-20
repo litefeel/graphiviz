@@ -13,4 +13,4 @@ script:
   - python graphiviz.py -h
   - python graphiviz.py test/data.txt
   - python graphiviz.py test/data.txt  -F json
-  - python graphiviz.py test/data.json -o gv
+  - python graphiviz.py test/data.json -F gv
