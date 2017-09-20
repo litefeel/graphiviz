@@ -88,7 +88,7 @@ def file2gv(filename, content_type):
     gv = gen_graphiviz(map)
     return gv
 
-def detect_format(format, filename, exts, err):
+def detect_format(format, filename, exts, err = None):
     if format != 'auto':
         return format
     if filename:
@@ -96,7 +96,9 @@ def detect_format(format, filename, exts, err):
         if ext in exts:
             return ext[1:]
     
-    raise ValueError(err)
+    if err:
+        raise ValueError(err)
+    return None
 
 # -------------- main ----------------
 if __name__ == '__main__':
@@ -115,7 +117,7 @@ if __name__ == '__main__':
         help='input file format (default: %(default)s)')
 
     parser.add_argument('-F', '--outformat',
-        choices=['gv', 'json', 'auto'], default='gv',
+        choices=['gv', 'json', 'auto'], default='auto',
         help='output file format (default: %(default)s)')
 
     parser.add_argument('file',
@@ -130,8 +132,7 @@ if __name__ == '__main__':
         'can not detect input file format')
     output_format = detect_format(
         args.outformat, args.output,
-        ('.gv', '.json'),
-        'can not detect input file format')
+        ('.gv', '.json')) or 'gv'
     
     if output_format == 'gv':
         data = file2gv(args.file, input_format)
