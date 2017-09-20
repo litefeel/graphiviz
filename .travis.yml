@@ -8,11 +8,6 @@ python:
   - 3.7-dev # 3.7 development branch
   - nightly
 
-matrix:
-  allow_failures:
-  - python: 3.2  # pyyaml have syntax error on python 3.2
-
-
 # command to run tests
 script:
   - python graphiviz.py -h
