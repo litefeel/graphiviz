@@ -31,3 +31,9 @@ optional arguments:
 - txt : 请看 [data.txt](https://github.com/litefeel/graphiviz/blob/master/test/data.txt)
 - json: 请看 [data.json](https://github.com/litefeel/graphiviz/blob/master/test/data.json)
 - gv:   请看 [data.gv](https://github.com/litefeel/graphiviz/blob/master/test/data.gv)
+
+
+#### 如何可视化关系图
+
+- 在线工具: <http://www.webgraphviz.com/>
+- 客户端工具: <http://www.graphviz.org/>
