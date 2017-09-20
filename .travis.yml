@@ -1,0 +1,21 @@
+language: python
+python:
+  - 3.2
+  - 3.3
+  - 3.4
+  - 3.5
+  - 3.6
+  - 3.7-dev # 3.7 development branch
+  - nightly
+
+matrix:
+  allow_failures:
+  - python: 3.2  # pyyaml have syntax error on python 3.2
+
+
+# command to run tests
+script:
+  - python graphiviz.py -h
+  - python graphiviz.py test/data.txt
+  - python graphiviz.py test/data.txt  -F json
+  - python graphiviz.py test/data.json -o gv
